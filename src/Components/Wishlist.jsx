@@ -1,4 +1,3 @@
-import React, {useState, useEffect} from 'react'
 import FilmCard from "./FilmCard.jsx";
 
 export default function Wishlist({wishList, setWishList}) {

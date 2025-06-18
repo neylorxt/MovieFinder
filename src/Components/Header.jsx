@@ -2,7 +2,7 @@ import {
     Plus
 } from 'lucide-react'
 
-export default function Header({setFilms, setIsWishList}) {
+export default function Header({setFilms, setIsWishList, isWishList}) {
 
     const setMyFilms = (value) => {
         setFilms(value);
@@ -25,12 +25,16 @@ export default function Header({setFilms, setIsWishList}) {
                         Un film t interesse recherche le et ajoute le dans ta wishlist
                     </p>
 
+                    {
+                        !isWishList && <div className="relative p-3 border border-gray-200 rounded-lg w-full max-w-lg">
+                            <input type="text" className="rounded-md w-full p-3 "
+                                   placeholder="Search un title" onChange={(e) => setMyFilms(e.target.value)}/>
 
-                    <div className="relative p-3 border border-gray-200 rounded-lg w-full max-w-lg">
-                        <input type="text" className="rounded-md w-full p-3 "
-                               placeholder="Search un title" onChange={(e) => setMyFilms(e.target.value)}/>
+                        </div>
+                    }
 
-                    </div>
+
+
 
                 </div>
 

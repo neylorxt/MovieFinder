@@ -7,7 +7,7 @@ function App() {
     const [filmsToSearch, setFilmsToSearch] = useState([]);
     const [films, setFilms] = useState([]);
     const [wishList, setWishList] = useState( [] );
-    const [isWishList, setIsWishList] = useState( JSON.parse(localStorage.getItem("wishlist") )  || [] );
+    const [isWishList, setIsWishList] = useState(false );
 
 
     useEffect(() => {
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-        <Header setFilms={setFilmsToSearch} setIsWishList={setIsWishList}/>
+        <Header setFilms={setFilmsToSearch} setIsWishList={setIsWishList} isWishList={isWishList}/>
 
         {
             !isWishList && <FilmList films={films} setFilms={setFilms} filmsToSearch={filmsToSearch} wishList={wishList} setWishList={setWishList} />
