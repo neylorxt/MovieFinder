@@ -10,7 +10,7 @@ export default function Header({setFilms, setIsWishList, isWishList}) {
 
     return (
         <>
-            <div className="relative h-[350px] bg-gradient-to-tr bg-gradient-from-blue-500 to-purple-600">
+            <div className="relative h-[350px] lg:h-[450px] bg-gradient-to-tr bg-gradient-from-blue-500 to-purple-600">
                 <button  onClick={() => setIsWishList(prev => !prev)}
                     className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl right-2 top-2 absolute z-2">
                     <Plus /> Wishlist
