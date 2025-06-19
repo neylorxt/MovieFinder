@@ -1,12 +1,47 @@
-# React + Vite
+# 🎬 MovieFinder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une web app intuitive pour rechercher facilement des films grâce à l’API OMDb. Construite avec **React.js**, **TailwindCSS**, **DaisyUI** et les icônes **Lucide**, elle propose une expérience utilisateur fluide et moderne.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Démo en ligne
 
-## Expanding the ESLint configuration
+👉 [Découvrir l’application](https://movie-finder-gilt.vercel.app) 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Fonctionnalités
+
+- 🔍 Recherche instantanée de films via l’API TMDB
+- 🖼️ Affichage des affiches, titres, années de sortie et types (film, série, etc.)
+- 🎨 Interface responsive et moderne
+- ⚡ Chargement rapide grâce à Vite
+- 📦 Code propre et modulaire, facile à maintenir
+
+---
+
+## 🛠️ Technologies utilisées
+
+- [React.js](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
+- [Lucide React](https://lucide.dev/)
+- [Vite](https://vite.dev/)
+- [TMDB API](https://developer.themoviedb.org/docs/getting-started)
+
+---
+
+## 📦 Installation
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/neylorxt/MovieFinder.git
+
+# Aller dans le dossier
+cd MovieFinder
+
+# Installer les dépendances
+npm install
+
+# Lancer le projet
+npm run dev
