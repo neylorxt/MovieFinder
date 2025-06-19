@@ -1,6 +1,6 @@
 # 🎬 MovieFinder
 
-Une web app intuitive pour rechercher facilement des films grâce à l’API OMDb. Construite avec **React.js**, **TailwindCSS**, **DaisyUI** et les icônes **Lucide**, elle propose une expérience utilisateur fluide et moderne.
+Une web app intuitive pour rechercher facilement des films grâce à l’API TMDb. Construite avec **React.js**, **TailwindCSS**, **DaisyUI** et les icônes **Lucide**, elle propose une expérience utilisateur fluide et moderne.
 
 ---
 
