@@ -16,14 +16,18 @@ function App() {
 
   return (
     <>
-        <Header setFilms={setFilmsToSearch} setIsWishList={setIsWishList} isWishList={isWishList}/>
+        <main>
 
-        {
-            !isWishList && <FilmList films={films} setFilms={setFilms} filmsToSearch={filmsToSearch} wishList={wishList} setWishList={setWishList} />
-        }
-        {
-            isWishList && <Wishlist setWishList={setWishList} wishList={wishList} />
-        }
+            <Header setFilms={setFilmsToSearch} setIsWishList={setIsWishList} isWishList={isWishList}/>
+
+            {
+                !isWishList && <FilmList films={films} setFilms={setFilms} filmsToSearch={filmsToSearch} wishList={wishList} setWishList={setWishList} />
+            }
+            {
+                isWishList && <Wishlist setWishList={setWishList} wishList={wishList} />
+            }
+
+        </main>
     </>
   )
 }
