@@ -33,6 +33,11 @@ Une web app intuitive pour rechercher facilement des films grâce à l’API TMD
 
 ## 📦 Installation
 
+Va sur TMDB API :
+- Creer un compte
+- Copy ton API KEY
+- Colle le sur la variable API_BEAR dans Api.jsx
+
 ```bash
 # Cloner le dépôt
 git clone https://github.com/neylorxt/MovieFinder.git
