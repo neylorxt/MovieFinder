@@ -1,4 +1,6 @@
 
+import { Bookmark, BookmarkCheck, Calendar, Star } from 'lucide-react'
+
 
 export default function FilmCard({movie, setWishList, wishList}) {
 
@@ -32,48 +34,52 @@ export default function FilmCard({movie, setWishList, wishList}) {
         }
     }
 
-    return <>
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    const isSaved = wishList?.find(item => item.id === movie.id);
+    const year = movie?.release_date ? new Date(movie.release_date).getFullYear() : "N/A";
 
-            <div>
-                <img className={`rounded-t-lg ${movie?.backdrop_path?? `h-49 w-full`}`} src={image_link} alt="product image"/>
+    return (
+        <article className="group flex h-full flex-col overflow-hidden border border-white/10 bg-[#111722] transition hover:-translate-y-1 hover:border-cyan-300/60 hover:bg-[#151d2b]">
+            <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
+                <img
+                    className="h-full w-full object-cover opacity-90 transition duration-300 group-hover:scale-105 group-hover:opacity-100"
+                    src={image_link}
+                    alt={movie?.title ? `${movie.title} backdrop` : "Image unavailable"}
+                />
+                <div className="absolute left-3 top-3 inline-flex items-center gap-1 bg-black/70 px-2 py-1 text-xs font-bold text-amber-300">
+                    <Star size={14} fill="currentColor" />
+                    {movie?.vote_average ? movie.vote_average.toFixed(1) : "N/A"}
+                </div>
             </div>
 
-            <div className="px-5 pb-5">
-                <a href="#">
-                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {movie?.title}
-                    </h5>
-                </a>
-
-                <div className="flex items-center mt-2.5 mb-5">
-                    <div className="flex items-center space-x-1 rtl:space-x-reverse">
-
-
-                        <svg className="w-4 h-4 text-yellow-300" aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                            <path
-                                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                        </svg>
-
-                    </div>
-                    <span
-                        className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ms-3">{movie?.vote_average.toFixed()}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                    <span className="text-xl font-bold text-gray-900 dark:text-white">{movie?.original_language.toUpperCase(1)}</span>
-                    <button  onClick={() => addMovieToWishList()}
-                        className={`btn cursor-pointer ${wishList?.find(item => item.id === movie.id) ? "bg-red-500 hover:bg-red-600" : "bg-blue-500 hover:bg-blue-600"} text-white`}>
-                        <span className="label"> { wishList?.find(item => item.id === movie.id) ? "Remove" : "+ Add To Wishlist" }</span>
-
-                        <span className="gradient-container">
-                            <span className="gradient"></span>
+            <div className="flex flex-1 flex-col p-4">
+                <div className="mb-4 flex-1">
+                    <div className="mb-3 flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                        <span>{movie?.original_language?.toUpperCase() || "N/A"}</span>
+                        <span className="inline-flex items-center gap-1">
+                            <Calendar size={13} />
+                            {year}
                         </span>
-
-                    </button>
+                    </div>
+                    <h3 className="line-clamp-2 text-lg font-bold leading-snug text-white">
+                        {movie?.title}
+                    </h3>
+                    <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-400">
+                        {movie?.overview || "No overview available for this movie."}
+                    </p>
                 </div>
-            </div>
-        </div>
 
-    </>
+                <button
+                    onClick={() => addMovieToWishList()}
+                    className={`inline-flex h-11 w-full items-center justify-center gap-2 border px-4 text-sm font-semibold transition ${
+                        isSaved
+                            ? "border-red-400/50 bg-red-500/10 text-red-200 hover:bg-red-500/20"
+                            : "border-cyan-300/50 bg-cyan-300/10 text-cyan-100 hover:bg-cyan-300/20"
+                    }`}
+                >
+                    {isSaved ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
+                    {isSaved ? "Remove" : "Add"}
+                </button>
+            </div>
+        </article>
+    )
 }
